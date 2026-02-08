@@ -1,15 +1,11 @@
-import express from "express";
-import OpenAI from "openai";
-
+const express = require("express");
 const app = express();
-app.use(express.json());
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 app.get("/", (req, res) => {
   res.send("Hindi AI Backend Running 🚀");
 });
 
-app.post("/generate", async (req, res) => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
+});
